@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure ATM Machine</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="atm-container">
+        <div class="atm-header">ATM MACHINE</div>
+        <div class="camera"></div>
+        <div class="screen">
+            <div id="createScreen" class="screen-content">
+                <h2>Create Account</h2>
+                <input type="text" id="newName" placeholder="Full Name">
+                <input type="text" id="newBank" placeholder="Bank Name">
+                <input type="password" id="newPin" placeholder="4-Digit PIN" maxlength="4">
+                <input type="number" id="newAmount" placeholder="Initial Amount">
+                <button onclick="createAccount()">Create & Login</button>
+                <p>Or <button onclick="showLogin()">Login</button></p>
+            </div>
+            <div id="loginScreen" class="screen-content hidden">
+                <h2>Login with PIN</h2>
+                <input type="text" id="loginName" placeholder="Bank Holder Name">
+                <div class="status" id="loginStatus"></div>
+                <input type="password" id="loginPin" placeholder="Enter PIN" maxlength="4">
+                <button onclick="login()">Login</button>
+                <p><button onclick="showCreate()">Create Account</button></p>
+            </div>
+            <div id="menuScreen" class="screen-content hidden">
+                <h2>Welcome, <span id="userName"></span>!</h2>
+                <div id="balance">Balance: ₹0</div>
+                <div class="menu">
+                    <button onclick="withdraw()">1. Withdraw Money</button>
+                    <button onclick="deposit()">2. Deposit Money</button>
+                    <button onclick="checkBalance()">3. Check Balance</button>
+                    <button onclick="pinchange()">4. change Pin</button>
+                    <button onclick="recipt()">5. Tranasiction Recipt</button>
+                    <button onclick="logout()">6. Cancel/logout</button>
+                </div>
+            </div>
+            <div id="transScreen" class="screen-content hidden">
+                <h2 id="transTitle"></h2>
+                <input type="number" id="amount" placeholder="Enter Amount">
+                <input type="password" id="transPin" placeholder="Confirm PIN">
+                <div class="status" id="transStatus"></div>
+                <button onclick="performTrans()">Confirm</button>
+                <button onclick="backToMenu()">Back</button>
+            </div>
+            <div id="resultScreen" class="screen-content hidden">
+
+                <h2 id="resultMsg"></h2>
+                <button onclick="backToMenu()">Back to Menu</button>
+            </div>
+            <div id="pinScreen" class="screen-content hidden">
+    <h2>Change PIN</h2>
+
+    <input type="password" id="oldPin" placeholder="Enter Old PIN" maxlength="4">
+    <input type="password" id="changeNewPin" placeholder="Enter New PIN" maxlength="4">
+
+    <div class="status" id="pinStatus"></div>
+
+    <button onclick="updatePin()">Update PIN</button>
+    <button onclick="backToMenu()">Back</button>
+</div>
+
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>
